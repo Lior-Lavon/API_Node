@@ -2,11 +2,11 @@
   "name": "node-api",
   "version": "1.0.0",
   "description": "",
-  "main": "serve.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "DEBUG=server,server:* nodemon server.js",
-    "lint": "eslint server.js"
+    "test": "mocha ./test/spec.js",
+    "start": "DEBUG=index,index:* nodemon index.js",
+    "lint": "eslint index.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,9 +21,11 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "supertest": "^3.3.0"
   },
   "nodemonConfig": {
     "restartable": "rs",
@@ -33,7 +35,7 @@
     "delay": "2500",
     "env": {
       "NODE_ENV": "development",
-      "PORT": 3000
+      "PORT": 4000
     }
   }
 }
