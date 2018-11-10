@@ -1,11 +1,12 @@
-const debug = require('debug')('index');
 const chalk = require('chalk');
+const debug = require('debug')('index');
+const config = require('./server/config/config');
+const app = require('./server/server');
 
-const app = require('./src/server');
+// logger is a wrapper arround consule.log
+//const logger = require('./server/util/logger');
 
-const port = process.env.PORT || 4000;
-
-app.listen(port, () => {
-    debug(`Express: Listsning on port ${chalk.green(port)}`);
+app.listen(config.port, () => {
+    debug(`Listsning on http://localhost:${chalk.green(config.port)}`);
   });
   
