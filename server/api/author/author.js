@@ -1,11 +1,11 @@
 const express = require('express');
 // const logger = require('../../util/logger');
-const categoryController = require('./categoryController')();
+const authorController = require('./authorController')();
 
 const router = express.Router();
 
 module.exports = () => {
-  const { params, get, getOne, put, post, deleteCat } = categoryController;
+  const { params, get, getOne, put, post, deleteAuthor } = authorController;
 
   router.param('id', params);
   router.route('/')
@@ -14,6 +14,6 @@ module.exports = () => {
   router.route('/:id')
     .get(getOne)
     .put(put)
-    .delete(deleteCat);
+    .delete(deleteAuthor);
   return router;
 };

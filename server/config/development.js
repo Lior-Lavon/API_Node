@@ -1,3 +1,7 @@
 module.exports = {
-    logging: true
+  logging: true,
+  seeds: true,
+  db: {
+    url: 'mongodb://localhost/nodeblog',
+  },
 };

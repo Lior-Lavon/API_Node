@@ -1,10 +1,17 @@
-var lodash = require('lodash');
+const lodash = require('lodash');
 
-var config = {
-    dev: 'development',
-    test: 'testing',
-    prod: 'production',
-    port: process.env.port || 3000
+const config = {
+  dev: 'development',
+  test: 'testing',
+  prod: 'production',
+  port: process.env.port || 3000,
+
+  // JWT expire time
+  // 10 days in minutes
+  expireTime: 24 * 60 * 10,
+  secrets: {
+    jwt: process.env.jwt || 'bumball',
+  },
 };
 
 // check to see if the NODE_ENV was set, if not, set the it to dev

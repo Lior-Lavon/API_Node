@@ -1,13 +1,19 @@
 const express = require('express');
-const logger = require('../../util/logger');
+// const logger = require('../../util/logger');
+const postController = require('./postController')();
 
 const router = express.Router();
 
 module.exports = () => {
-    router.route('/')
-        .get((req, res) => {
-          //logger.log('Hi from post!');
-          res.json({ok: true});
-        });
-    return router;
-}
+  const { params, get, getOne, put, post, deletePost } = postController;
+
+  router.param('id', params);
+  router.route('/')
+    .get(get)
+    .post(post);
+  router.route('/:id')
+    .get(getOne)
+    .put(put)
+    .delete(deletePost);
+  return router;
+};
